@@ -1,0 +1,53 @@
+Domain Class start
+=============================================
+User
+	Id
+	name
+	mailid
+	pwd
+	
+Interface (Blog/Comment)
+	id
+	body
+	User
+	CreatedDate
+	ModifiedDate
+	parentId
+
+Blog
+	title
+	Image
+	privacySet
+	
+	
+Comment
+	implements interface
+	
+Privacy Set:
+	Public
+	private
+	Enable Comment
+	Disable Comment
+===============================================
+Domain Class end
+
+Business Class Start
+=============================================
+blogActions
+	Blog post(Blog blog)
+	void delete(int blogId)
+	Blog update(Blog blog)
+	List<Blog> viewAll()
+	Blog view(int blogId)
+
+userActions
+	add / Signin
+	delete / Signout
+	login
+	logout
+	updateProfile
+	viewProfile
+	comment
+	
+=============================================
+Business Class End
