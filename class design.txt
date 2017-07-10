@@ -2,32 +2,33 @@ Domain Class start
 =============================================
 User
 	Id
+	username
+	pwd
 	name
 	mailid
-	pwd
+	isActive<boolean>
 	
 Interface (Blog/Comment)
 	id
-	body
-	User
+	body / text description
+	User<User>
 	CreatedDate
 	ModifiedDate
-	parentId
+	parentId<Blog/comment id>
 
 Blog
 	title
-	Image
-	privacySet
-	
-	
+	List<Image>
+	// privacySet
+
 Comment
 	implements interface
 	
-Privacy Set:
-	Public
-	private
-	Enable Comment
-	Disable Comment
+//Privacy Set:
+//	Public
+//	private
+//	Enable Comment
+//	Disable Comment
 ===============================================
 Domain Class end
 
@@ -40,14 +41,22 @@ blogActions
 	List<Blog> viewAll()
 	Blog view(int blogId)
 
+commentActions
+	Comment view(int commentId)
+	Comment post(Comment comment)
+	Comment update(Comment comment)
+	void delete(int commentId)	
+	
 userActions
-	add / Signin
-	delete / Signout
-	login
-	logout
-	updateProfile
-	viewProfile
-	comment
+	void Signin (User user) //create
+	void Signout(int userId) //delete
+	User login(User user)
+	void logout(User user)
+	User updateProfile (User user)
+	User viewProfile (int userId<id>)
+	blogActions
+	commentActions
 	
 =============================================
 Business Class End
+
