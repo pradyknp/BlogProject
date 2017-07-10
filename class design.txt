@@ -6,6 +6,7 @@ User
 	pwd
 	name
 	mailid
+	userImage 
 	isActive<boolean>
 	
 Interface (Blog/Comment)
