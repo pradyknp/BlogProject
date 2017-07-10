@@ -49,8 +49,8 @@ commentActions
 	void delete(int commentId)	
 	
 userActions
-	void Signin (User user) //create
-	void Signout(int userId) //delete
+	void Signup (User user) //create
+	void Exit(int userId) //Exiting the website
 	User login(User user)
 	void logout(User user)
 	User updateProfile (User user)
