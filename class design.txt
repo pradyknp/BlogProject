@@ -36,6 +36,17 @@ Comment
 //	private
 //	Enable Comment
 //	Disable Comment
+
+Relationships:
+
+User -1------------N- Blog
+  					    |
+						| 1
+					    |
+						|
+					    | N
+						|
+					  Comment	
 ===============================================
 Domain Class end
 
