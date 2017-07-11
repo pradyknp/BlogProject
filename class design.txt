@@ -16,6 +16,7 @@ Blog
 	User<User>
 	CreatedDate
 	ModifiedDate
+	category
 	// List<Image>
 	List<Comment>
 	// privacySet
@@ -47,6 +48,8 @@ blogActions
 	Blog view(int blogId)
 	List<Blog> viewAll()
 	List<Blog> viewAll(username)
+	List<Blog> viewAll(category)
+	List<Blog> search(String)
 	
 commentActions
 	Comment view(int commentId)
