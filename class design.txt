@@ -1,29 +1,34 @@
 Domain Class start
 =============================================
 User
-	Id
-	username
+	Id/username
 	pwd
 	name
 	mailid
-	userImage 
-	isActive<boolean>
+	tagline / Status
+	// userImage 
+	// isActive<boolean>  - login is maintained by session token (oath)
 	
-Interface (Blog/Comment)
+Blog
 	id
+	title
 	body / text description
 	User<User>
 	CreatedDate
 	ModifiedDate
-	parentId<Blog/comment id>
-
-Blog
-	title
-	List<Image>
+	// List<Image>
+	List<Comment>
 	// privacySet
 
 Comment
-	implements interface
+	id
+	body / text description
+	user name<User.username>
+	CreatedDate
+	ModifiedDate
+	parentId<Blog.id>
+	// reply string??
+
 	
 //Privacy Set:
 //	Public
@@ -39,9 +44,10 @@ blogActions
 	Blog post(Blog blog)
 	void delete(int blogId)
 	Blog update(Blog blog)
-	List<Blog> viewAll()
 	Blog view(int blogId)
-
+	List<Blog> viewAll()
+	List<Blog> viewAll(username)
+	
 commentActions
 	Comment view(int commentId)
 	Comment post(Comment comment)
@@ -54,7 +60,7 @@ userActions
 	User login(User user)
 	void logout(User user)
 	User updateProfile (User user)
-	User viewProfile (int userId<id>)
+	User viewProfile (String username)
 	blogActions
 	commentActions
 	
