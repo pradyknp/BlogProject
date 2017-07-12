@@ -1,11 +1,11 @@
 Domain Class start
 =============================================
 User
-	Id/username
+	username(id)
 	pwd
 	name
 	mailid
-	tagline / Status
+	tagline/Status
 	// userImage 
 	// isActive<boolean>  - login is maintained by session token (oath)
 	
@@ -58,8 +58,8 @@ blogActions
 	Blog update(Blog blog)
 	Blog view(int blogId)
 	List<Blog> viewAll()
-	List<Blog> viewAll(username)
-	List<Blog> viewAll(category)
+	List<Blog> findByUserName(username)
+	List<Blog> findByCategory(category)
 	List<Blog> search(String)
 	
 commentActions
@@ -72,12 +72,11 @@ userActions
 	void Signup (User user) //create
 	void Exit(int userId) //Exiting the website
 	User login(User user)
-	void logout(User user)
+	void logout(String username)
 	User updateProfile (User user)
 	User viewProfile (String username)
 	blogActions
 	commentActions
-	
 =============================================
 Business Class End
 
