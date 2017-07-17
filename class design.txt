@@ -6,6 +6,7 @@ User
 	name
 	mailid
 	tagline / Status
+	List Blog  blog
 	// userImage 
 	// isActive<boolean>  - login is maintained by session token (oath)
 	
