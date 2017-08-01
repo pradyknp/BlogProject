@@ -1,39 +1,50 @@
 package blog.api;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+
+import java.util.List;
 
 @Entity
 public class User {
-	@Id
-	private String userId;
-	private String pwd;
-	private String mailId;
-	private String userName;
 	
-	public String getUserId() {
-		return userId;
-	}
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
+	private String pwd;
+	private String mailid;
+	
+//	@Id
+//	@GeneratedValue( strategy=GenerationType.AUTO )
+//	private int id;
+	
+	@Id
+	private String username;
+	
+	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy= "user")
+	private List<Blog> blog;
+	
+	private String tagLine;
+	
+
 	public String getPwd() {
 		return pwd;
 	}
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
-	public String getMailId() {
-		return mailId;
+	public String getMailid() {
+		return mailid;
 	}
-	public void setMailId(String mailId) {
-		this.mailId = mailId;
+	public void setMailid(String maildd) {
+		this.mailid = maildd;
 	}
-	public String getUserName() {
-		return userName;
+	public String getUsername() {
+		return username;
 	}
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	public String getTagLine() {
 		return tagLine;
@@ -41,5 +52,18 @@ public class User {
 	public void setTagLine(String tagLine) {
 		this.tagLine = tagLine;
 	}
-	private String tagLine;
+	
+////	public int getId() {
+////		return id;
+////	}
+////	public void setId(int id) {
+////		this.id = id;
+////	}
+//	
+////	public List<Blog> getBlog() {
+////		return blog;
+////	}
+////	public void setBlog(List<Blog> blog) {
+////		this.blog = blog;
+////	}
 }

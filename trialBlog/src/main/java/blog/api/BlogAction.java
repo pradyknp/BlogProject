@@ -1,16 +1,20 @@
 package blog.api;
 
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement
-@Entity
+import blog.api.exception.BlogException;
+import blog.api.exception.BlogNotFoundException;
+import blog.api.exception.DuplicateBlogException;
+import blog.api.exception.InvalidBlogException;
+
 public interface BlogAction {
-	Blog post(Blog blog);
-	Blog update(Blog blog);
-	Blog view(int blogId);
+	void post(Blog blog) throws DuplicateBlogException,InvalidBlogException, BlogException;
+	Blog update(Blog blog) throws BlogNotFoundException,InvalidBlogException,BlogException;
+	Blog view(int blogId) throws DuplicateBlogException,InvalidBlogException,BlogException;
+	void postComment(Comment comment);
+	
 //	void delete(int blogId);
 //	List<Blog> viewAll();
 //	List<Blog> findByUserName(String userName);

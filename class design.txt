@@ -80,3 +80,9 @@ userActions
 =============================================
 Business Class End
 
+
+Post Man url and json data
+
+http://localhost:7777/trialblog/myBlog/blog ---->  {"id":59,"title":"pradeep is blogging","body":"sdfasdfasfasdfgdsafasdfasfsdfsadfafasd","user":{"mailid":"pradfsdfs","username":"pradyknp09","pwd":"asdfasfas","tagLine":"I am waiting"},"createdDate":"2017-07-29T10:55:23","modifiedDate":"2017-07-20T10:55:23","category":"politics"}
+
+http://localhost:7777/trialblog/myBlog/blog/postComment ----> Json data {"body":"sdfasdfasfasdfsadfafasd","username":"pradyknp123","createdDate":"2017-07-20T10:55:23","modifiedDate":"2017-07-20T10:55:23"}

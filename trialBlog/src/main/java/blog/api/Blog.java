@@ -3,21 +3,38 @@ package blog.api;
 import java.sql.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ForeignKey;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
-@XmlRootElement
 @Entity
 public class Blog {
+	
 	@Id
+//	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String title;
 	private String body;
+	
+	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	@JoinColumn(name = "userID")
 	private User user;
+	
+	
 	private Date createdDate;
 	private Date modifiedDate;
 	private String category;
+	
+	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+//	@JoinColumn
 	private List<Comment> comments;
 	
 	public int getId() {
@@ -38,12 +55,7 @@ public class Blog {
 	public void setBody(String body) {
 		this.body = body;
 	}
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
+	
 	public Date getCreatedDate() {
 		return createdDate;
 	}
@@ -67,6 +79,13 @@ public class Blog {
 	}
 	public void setComments(List<Comment> comments) {
 		this.comments = comments;
+	}
+	
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 }

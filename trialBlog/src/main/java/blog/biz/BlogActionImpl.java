@@ -1,33 +1,55 @@
 package blog.biz;
 
-import java.util.List;
 
-import javax.persistence.Entity;
-import javax.xml.bind.annotation.XmlRootElement;
 
 import blog.api.Blog;
 import blog.api.BlogAction;
+import blog.api.Comment;
+import blog.api.exception.BlogNotFoundException;
+import blog.api.exception.InvalidBlogException;
+import blog.data.BlogDAO;
+import blog.data.InMemoryBlogDAO;
 
-@XmlRootElement
-@Entity
 public class BlogActionImpl implements BlogAction{
+	BlogDAO dao = new InMemoryBlogDAO();
 
 	@Override
-	public Blog post(Blog blog) {
-		// TODO Auto-generated method stub
-		return null;
+	public void post(Blog blog) {
+		
+		if(blog == null || blog.getId() < 1 || blog.getTitle() == null || blog.getTitle().trim().length()==0 || blog.getTitle().trim().length() > 64 || blog.getBody().trim().length() == 0)
+			throw new InvalidBlogException();
+		
+		dao.post(blog);
 	}
 
 	@Override
 	public Blog update(Blog blog) {
-		// TODO Auto-generated method stub
-		return null;
+		Blog blogupdate= dao.read(blog.getId());
+		if(blogupdate == null)
+			throw new BlogNotFoundException();
+		
+		dao.post(blogupdate);
+		
+		return blog;
 	}
 
 	@Override
 	public Blog view(int blogId) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Blog blog= dao.read(blogId);
+		if(blog == null)
+			throw new BlogNotFoundException();
+		
+		return blog;
+	}
+	
+	@Override
+	public void postComment(Comment comment) {
+		if(comment == null)
+			throw new BlogNotFoundException();
+		
+		dao.addComment(comment);
+		
 	}
 
 }
