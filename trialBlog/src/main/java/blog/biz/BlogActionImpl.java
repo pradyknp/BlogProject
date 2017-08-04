@@ -9,6 +9,7 @@ import blog.api.exception.BlogNotFoundException;
 import blog.api.exception.InvalidBlogException;
 import blog.data.BlogDAO;
 import blog.data.InMemoryBlogDAO;
+import java.util.List;;
 
 public class BlogActionImpl implements BlogAction{
 	BlogDAO dao = new InMemoryBlogDAO();
@@ -50,6 +51,16 @@ public class BlogActionImpl implements BlogAction{
 		
 		dao.addComment(comment);
 		
+	}
+	
+	@Override
+	public List<Blog> viewAll() {
+		List<Blog> blogs = dao.readAll();
+		
+		if(blogs == null)
+			throw new BlogNotFoundException();
+		
+		return blogs;
 	}
 
 }

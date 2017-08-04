@@ -18,7 +18,7 @@ public class Comment {
 	private String username;
 	private Date createdDate;
 	private Date modifiedDate;
-//	private int blogId;
+	private int blogId;
 //	private List<String> replies;
 	
 	public int getId() {
@@ -51,12 +51,12 @@ public class Comment {
 	public void setModifiedDate(Date modifiedDate) {
 		this.modifiedDate = modifiedDate;
 	}
-//	public int getBlogId() {
-//		return blogId;
-//	}
-//	public void setBlogId(int blogId) {
-//		this.blogId = blogId;
-//	}
+	public int getBlogId() {
+		return blogId;
+	}
+	public void setBlogId(int blogId) {
+		this.blogId = blogId;
+	}
 //	public List<String> getReplies() {
 //		return replies;
 //	}

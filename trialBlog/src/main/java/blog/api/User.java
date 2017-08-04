@@ -22,8 +22,8 @@ public class User {
 	@Id
 	private String username;
 	
-	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy= "user")
-	private List<Blog> blog;
+//	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy="user")
+//	private List<Blog> blog;
 	
 	private String tagLine;
 	
@@ -60,10 +60,10 @@ public class User {
 ////		this.id = id;
 ////	}
 //	
-////	public List<Blog> getBlog() {
-////		return blog;
-////	}
-////	public void setBlog(List<Blog> blog) {
-////		this.blog = blog;
-////	}
+//	public List<Blog> getBlog() {
+//		return blog;
+//	}
+//	public void setBlog(List<Blog> blog) {
+//		this.blog = blog;
+//	}
 }

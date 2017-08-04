@@ -6,6 +6,7 @@ import javax.persistence.Persistence;
 
 import blog.api.Blog;
 import blog.api.Comment;
+import java.util.List;
 
 
 
@@ -30,6 +31,15 @@ public class InMemoryBlogDAO implements BlogDAO {
 	@Override
 	public Blog read(int id) {
 		return stock.find(Blog.class,id);
+	}
+	
+	@Override
+	public List<Blog> readAll() {
+		if(stock.getTransaction().isActive())
+			stock.getTransaction().rollback();
+		
+		stock.getTransaction().begin();
+		return stock.createQuery( "from Blog", Blog.class ).getResultList();
 	}
 	
 	@Override

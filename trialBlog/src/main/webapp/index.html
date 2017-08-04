@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Online Public Blog</title>
+<link rel="stylesheet" href="blog.css"></link>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="blog.js"></script>
+</head>
+<body>
+	<ul>
+		<h1>Welcome to Blogging Website</h1>
+		<li><a href="#">Help</a></li>
+		<li><a href="#">Sign up</a></li>
+		<li><a href="#">Login</a></li>
+		<li><a href="#" id="createPost">Create Post</a></li>
+		<a class="blogref" href="#" id="addLink">Blog</a>
+	</ul>
+	<hr />
+	<table width="100%" height="750px" border="0">
+		<tr valign="top">
+			<td id="table-left" width="20%" height="99%"><a href="#"
+				id="addLink1">View All</a> <br> <br> <br> <b>By
+					Category</b><br /> <a href="#" id="addLink2">Entertainment</a> <br>
+				<a href="#" id="addLink3">Politics</a> <br> <a href="#"
+				id="addLink4">Travel</a> <br> <a href="#" id="addLink5">History</a>
+				<br></td>
+
+			<td width="80%" height="99%">
+				<div id="getAllBlog"></div>
+				<div id="showBlog">
+					<table>
+						<tr>
+							<td><div class="titlefontstyle" id="titleread" disabled></div>
+							</td>
+						</tr>
+						<tr>
+							<td><div class="datefontstyle" id="createread" disabled></div>
+							</td>
+						</tr>
+						<br>
+						<br>
+						<tr>
+							<td><div class="bodyfontstyle" id="bodyread" disabled></div>
+							<td>
+						</tr>
+					</table>
+
+				</div>
+				<div id="addBlog">
+					<form id="addBlogform">
+						<!-- <label for="fname">ID</label> <input type="text" id="id" name="id"><br> -->
+						<label for="title">Title</label> <input type="text" id="title"
+							name="title"><br> <label for="category">Category</label> <select
+							name="carlist" form="carform">
+							<option value="volvo">Entertainment</option>
+							<option value="saab">Politics</option>
+							<option value="opel">Travel</option>
+							<option value="audi">History</option>
+						</select> <br><br>
+						<label for="Body">Content:</label><br><br>
+						 <textarea autofocus   id="body" name="body"> </textarea><br><br>
+						 <button onclick="addPost()">Add Post</button>
+					</form>
+
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<center>Copyright © 2017 Tutorialspoint.com</center>
+			</td>
+		</tr>
+
+	</table>
+</body>
+</html>

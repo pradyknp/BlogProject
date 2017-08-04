@@ -17,6 +17,7 @@ import blog.api.exception.BlogNotFoundException;
 import blog.api.exception.DuplicateBlogException;
 import blog.api.exception.InvalidBlogException;
 import blog.biz.BlogActionImpl;
+import java.util.List;
 
 @Path("/blog")
 public class BlogRootResource {
@@ -35,7 +36,22 @@ public class BlogRootResource {
 			return Response.status(500).build();
 		}
 	}
-
+	
+	@GET
+	@Path("/getAll")
+	@Produces({ MediaType.APPLICATION_JSON})
+	public Response findAll() {
+		try {
+			List<Blog> blog = blogAction.viewAll();
+			return Response.ok().entity(blog).build();
+		} catch (BlogNotFoundException bnfe) {
+			return Response.status(404).build();
+		} catch (BlogException le) {
+			return Response.status(500).build();
+		}
+	}
+	
+	
 	@POST
 	@Consumes({ MediaType.APPLICATION_JSON})
 	@Produces({ MediaType.APPLICATION_JSON})

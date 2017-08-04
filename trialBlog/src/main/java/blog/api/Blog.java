@@ -24,18 +24,25 @@ public class Blog {
 	private String title;
 	private String body;
 	
-	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-	@JoinColumn(name = "userID")
-	private User user;
+//	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+//	@JoinColumn(name="user_id")
+//	private User user;
 	
+	private String username;
 	
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
 	private Date createdDate;
 	private Date modifiedDate;
 	private String category;
 	
-	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-//	@JoinColumn
-	private List<Comment> comments;
+//	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+////	@JoinColumn
+//	private List<Comment> comments;
 	
 	public int getId() {
 		return id;
@@ -74,18 +81,18 @@ public class Blog {
 	public void setCategory(String category) {
 		this.category = category;
 	}
-	public List<Comment> getComments() {
-		return comments;
-	}
-	public void setComments(List<Comment> comments) {
-		this.comments = comments;
-	}
+//	public List<Comment> getComments() {
+//		return comments;
+//	}
+//	public void setComments(List<Comment> comments) {
+//		this.comments = comments;
+//	}
 	
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
+//	public User getUser() {
+//		return user;
+//	}
+//	public void setUser(User user) {
+//		this.user = user;
+//	}
 
 }
