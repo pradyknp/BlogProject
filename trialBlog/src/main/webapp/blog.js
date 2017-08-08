@@ -22,7 +22,7 @@ function main(){
 		$("#addBlog").hide();
 	});
 	
-	var getByID = function(index) {
+	 getByID = function(index) {
 		console.log(globaldata[index]);
 		$("#bodyread").html(globaldata[index].body);
 		$("#titleread").html(globaldata[index].title);
@@ -46,8 +46,7 @@ function main(){
 		var body =  $("#body").val();
 		var category = $('#category option:selected').val();
 		var id=globaldata.length+1;
-		var createdDate ="2017-07-20T10:55:23"
-		var modifiedDate= "2017-07-20T10:55:23"
+		
 			
 		var today = new Date();
 		var dd = today.getDate();
@@ -60,7 +59,10 @@ function main(){
 		if(mm<10){
 		    mm='0'+mm;
 		} 
-		var today = dd+'/'+mm+'/'+yyyy;
+		var today = yyyy+'-'+mm+'-'+dd;
+		
+		var createdDate =today;
+		var modifiedDate= today;
 		
 		var data = "{\"title\":\""+title+"\",\"body\":\""+body+"\",\"category\":\""+category+"\",\"id\":"+id+",\"username\":\""+username+"\",\"createdDate\":\""+createdDate+"\",\"modifiedDate\":\""+modifiedDate+"\"}";
 		
