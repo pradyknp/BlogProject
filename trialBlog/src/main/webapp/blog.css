@@ -58,16 +58,16 @@ li a:hover {
     background-color: grey;
 }
 
-input[type=text] {
-    width: 60%;
-    padding: 12px 20px;
+#title {
+    width: 625px;
+    padding: 5px;
     margin: 8px 0;
     box-sizing: border-box;
 }
 
 textarea#body {
-	width: 60%;
-	height: 200px;
+	width: 600px;
+	height: 600px;
 	border: 3px solid #cccccc;
 	padding: 5px;
 	font-family: Tahoma, sans-serif;
