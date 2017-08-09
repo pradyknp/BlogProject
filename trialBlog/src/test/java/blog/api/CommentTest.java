@@ -54,6 +54,7 @@ public class CommentTest {
 
 	}
 	
+	
 	@Test
 	public void testGetSetModifiedDate() throws Exception {
 		Date date = new Date(10);
