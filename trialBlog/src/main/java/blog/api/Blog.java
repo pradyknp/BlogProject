@@ -1,6 +1,7 @@
 package blog.api;
 
 import java.sql.Date;
+import java.sql.Time;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -33,11 +34,14 @@ public class Blog {
 	public String getUsername() {
 		return username;
 	}
+	
 	public void setUsername(String username) {
 		this.username = username;
 	}
 	private Date createdDate;
 	private Date modifiedDate;
+	private String modifiedTime;
+	
 	private String category;
 	
 //	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
@@ -81,6 +85,15 @@ public class Blog {
 	public void setCategory(String category) {
 		this.category = category;
 	}
+	
+	public String getModifiedTime() {
+		return modifiedTime;
+	}
+	public void setModifiedTime(String modifiedTime) {
+		this.modifiedTime = modifiedTime;
+	}
+	
+
 //	public List<Comment> getComments() {
 //		return comments;
 //	}
