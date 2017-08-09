@@ -69,4 +69,5 @@ public class CommentTest {
 		assertEquals(toTest.getBlogId(), blogId);
 
 	}
+	
 }
