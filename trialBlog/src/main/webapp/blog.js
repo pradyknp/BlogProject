@@ -26,7 +26,25 @@ function main(){
 		console.log(globaldata[index]);
 		$("#bodyread").html(globaldata[index].body);
 		$("#titleread").html(globaldata[index].title);
-		$("#createread").html("April 25 2017");
+		
+		var today = new Date(parseInt(globaldata[index].modifiedTime));
+		
+		var dd = today.getDate();
+		var mm = today.getMonth()+1; //January is 0!
+
+		var yyyy = today.getFullYear();
+		if(dd<10){
+		    dd='0'+dd;
+		} 
+		if(mm<10){
+		    mm='0'+mm;
+		} 
+		
+		var time = today.getTime();
+		var date = dd+'-'+mm+'-'+yyyy;
+		
+		
+		$("#createread").html(date);
 		
 		$("#showBlog").show();
 		$("#getAllBlog").hide();
@@ -59,12 +77,14 @@ function main(){
 		if(mm<10){
 		    mm='0'+mm;
 		} 
-		var today = yyyy+'-'+mm+'-'+dd;
 		
-		var createdDate =today;
-		var modifiedDate= today;
+		var time = today.getTime();
+		var date = yyyy+'-'+mm+'-'+dd;
 		
-		var data = "{\"title\":\""+title+"\",\"body\":\""+body+"\",\"category\":\""+category+"\",\"id\":"+id+",\"username\":\""+username+"\",\"createdDate\":\""+createdDate+"\",\"modifiedDate\":\""+modifiedDate+"\"}";
+		var createdDate =date;
+		var modifiedDate= date;
+		
+		var data = "{\"title\":\""+title+"\",\"body\":\""+body+"\",\"category\":\""+category+"\",\"id\":"+id+",\"username\":\""+username+"\",\"createdDate\":\""+createdDate+"\",\"modifiedDate\":\""+modifiedDate+"\",\"modifiedTime\":\""+time+"\"}";
 		
 		
 		$.ajax({
