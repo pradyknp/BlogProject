@@ -27,6 +27,7 @@ public class Blog {
 	
 //	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 //	@JoinColumn(name="user_id")
+
 	
 	private String username;
 	
